@@ -37,7 +37,7 @@ static void		toggle_ijkl(int keycode, t_view *view, int toggle)
 		view->pressed->l = toggle;
 }
 
-static void		toggle_pressed(int keycode, t_view *view, int toggle)
+void			toggle_pressed(int keycode, t_view *view, int toggle)
 {
 	toggle_wasd(keycode, view, toggle);
 	toggle_ijkl(keycode, view, toggle);

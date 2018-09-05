@@ -45,7 +45,7 @@ void			trip_color_table(t_view *view)
 void			hardset_color_table(t_view *view)
 {
 	int			i;
-	static int	colors[] = {
+	static int	color[] = {
 		0x0048EF, 0x0057F0, 0x0166f0, 0x0274F0,
 		0x0383F0, 0x0491F0, 0x05A0F1, 0x06AEF1,
 		0x07BCF1, 0x08CAF1, 0x08D8f1, 0x09E6F2,
@@ -67,5 +67,5 @@ void			hardset_color_table(t_view *view)
 	view->color = (int*)malloc(sizeof(int) * 64);
 	i = -1;
 	while (++i < 64)
-		view->color[i] = colors[i];
+		view->color[i] = color[i];
 }

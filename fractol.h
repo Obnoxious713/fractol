@@ -73,9 +73,7 @@ int				mouse_release_hook(int button, int x, int y, t_view *view);
 int				mouse_press_hook(int button, int x, int y, t_view *view);
 int				motion_hook(int x, int y, t_view *view);
 
-static void		toggle_pressed(int keycode, t_view *view, int toggle);
-static void		toggle_ijkl(int keycode, t_view *view, int toggle);
-static void		toggle_wasd(int keycode, t_view *view, int toggle);
+void			toggle_pressed(int keycode, t_view *view, int toggle);
 
 void			use_image(t_view *view);
 void			create_image(t_view *view);
@@ -95,6 +93,12 @@ void			redraw(t_view *view);
 void			hardset_color_table(t_view *view);
 void			trip_color_table(t_view *view);
 void			init_color_table(t_view *view, int color_nbr);
+
+int				mandelbrot(t_view *view, double re, double im);
+int				julia(t_view *view, double x, double y);
+int				julia_mouse(t_view *view, double x, double y);
+
+void			show_fractal(t_view *view);
 
 
 #endif

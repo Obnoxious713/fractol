@@ -19,6 +19,8 @@ CC = gcc
 NORM = norminette -R CheckForbiddenSourceHeader
 
 SRC = color.c \
+		draw.c \
+		fractols.c \
 		gfx.c \
 		hooks.c \
 		image.c \
@@ -76,7 +78,7 @@ $(MLX):
 $(NAME): $(OBJ)
 	@echo "-> Compiling $(NAME)..."
 	@$(CC) -o $(NAME) $(OBJ) $(LINK_MLX) $(LINK_GFX) $(LINK_FT)
-	@echo "...Done"
+	@echo "	* * * Done * * *"
 
 clean:
 	@echo "-> Cleaning $(NAME) object files..."
