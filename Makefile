@@ -18,7 +18,10 @@ CC = gcc
 
 NORM = norminette -R CheckForbiddenSourceHeader
 
-SRC = image.c \
+SRC = color.c \
+		gfx.c \
+		hooks.c \
+		image.c \
 		mouse_hooks.c \
 		toggle_keys.c \
 		main.c

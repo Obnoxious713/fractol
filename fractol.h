@@ -41,7 +41,7 @@ typedef struct		s_view
 	void			*img;
 	char			*pixel;
 	int				*color;
-	int				colo_nbr;
+	int				color_nbr;
 	int				bpp;
 	int				line_size;
 	int				endian;
@@ -91,6 +91,10 @@ t_view			*create_view(void *mlx);
 void			set_hooks(t_view *view);
 void			init_view(t_view *view);
 void			redraw(t_view *view);
+
+void			hardset_color_table(t_view *view);
+void			trip_color_table(t_view *view);
+void			init_color_table(t_view *view, int color_nbr);
 
 
 #endif
