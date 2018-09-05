@@ -18,15 +18,15 @@ CC = gcc
 
 NORM = norminette -R CheckForbiddenSourceHeader
 
-SRC = color.c \
-		draw.c \
+SRC = main.c \
+		color.c \
 		fractols.c \
+		draw.c \
 		gfx.c \
 		hooks.c \
 		image.c \
 		mouse_hooks.c \
-		toggle_keys.c \
-		main.c
+		toggle_keys.c
 
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

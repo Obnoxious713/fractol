@@ -100,5 +100,9 @@ int				julia_mouse(t_view *view, double x, double y);
 
 void			show_fractal(t_view *view);
 
+t_view			*create_view(void *mlx);
+void			set_hooks(t_view *view);
+void			init_view(t_view *view);
+void			redraw(t_view *view);
 
 #endif
