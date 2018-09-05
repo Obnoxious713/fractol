@@ -12,7 +12,7 @@
 
 #ifndef LIBGFX_H
 # define LIBGFX_H
-# include "../minilibx/mlx.h"
+# include "minilibx/mlx.h"
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <math.h>

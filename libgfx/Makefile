@@ -13,22 +13,21 @@
 NAME =	libgfx.a
 FLAGS =	-Wall -Wextra -Werror -g
 CC = 	gcc
-ODIR =	bin/
+ODIR =	./bin/
 IDIR =
-SRC =
 OBJ =	$(SRC:.c=.o)
 EXT =	$(IDIR)$(NAME:.a=.h)
 
 EXT +=	Makefile
 
-SRC	+=	ft_drawline.c \
+SRC	=	ft_drawline.c \
 		matrix_math.c \
 		transform_matrix.c \
 		initializers.c
 
 O =		$(addprefix $(ODIR), $(OBJ))
 
-MLXINC	= -I../minilibx
+MLXINC	= -I./minilibx
 LFTINC	= -I../libft
 
 all: $(NAME)
