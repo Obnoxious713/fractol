@@ -23,6 +23,7 @@ void			redraw(t_view *view)
 	// else
 		// view->fract_func = julia_cubed_mouse;
 	// thread_fractal(view);
+	show_fractal(view);
 	use_image(view);
 }
 
@@ -48,7 +49,7 @@ void			set_hooks(t_view *view)
 	mlx_hook(view->win, 2, 0, key_press_hook, view);
 	mlx_hook(view->win, 3, 0, key_release_hook, view);
 	mlx_hook(view->win, 4, 0, mouse_press_hook, view);
-	mlx_hook(view->win, 5, 0, key_release_hook, view);
+	mlx_hook(view->win, 5, 0, mouse_release_hook, view);
 	mlx_hook(view->win, 6, 0, motion_hook, view);
 	mlx_hook(view->win, 12, 0, expose_hook, view);
 	mlx_hook(view->win, 17, 0, exit_hook, view);

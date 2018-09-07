@@ -30,8 +30,8 @@ typedef struct		s_fract
 {
 	long double		x;
 	long double		y;
-	long double		re;
-	long double 	im;
+	long double		real;
+	long double 	imagine;
 }					t_fract;
 
 typedef struct		s_view
@@ -94,7 +94,7 @@ void			hardset_color_table(t_view *view);
 void			trip_color_table(t_view *view);
 void			init_color_table(t_view *view, int color_nbr);
 
-int				mandelbrot(t_view *view, double re, double im);
+int				mandelbrot(t_view *view, double real, double imagine);
 int				julia(t_view *view, double x, double y);
 int				julia_mouse(t_view *view, double x, double y);
 
