@@ -51,7 +51,7 @@ int				loop_hook(t_view *view)
 {
 	if (view->pressed->a || view->pressed->s || view->pressed->w ||
 		view->pressed->d || view->pressed->i || view->pressed->k ||
-		view->pressed->q)
+		view->pressed->q || view->pressed->z)
 		view->changed = 1;
 	if (view->pressed->a)
 		view->x_shift += 10;
@@ -67,6 +67,8 @@ int				loop_hook(t_view *view)
 		view->zoom = (view->zoom - 1) * 1.1;
 	else if (view->pressed->q)
 		view->color_spin++;
+	else if (view->pressed->z)
+		view->color_spin--;
 	if (view->changed)
 		redraw(view);
 	return (0);

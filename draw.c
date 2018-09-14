@@ -29,10 +29,8 @@ void			show_fractal(t_view *view)
 			imagine = view->fract_func(view, x, y);
 			if (imagine < view->max_iter)
 			{
-				/* if (view->trippy)
-					view->count[imagine % 64]++; */
 				put_pixel_to_img(view, x, y, view->color[
-					(/* (view->trippy ? view->count[imagine] : imagine) */ imagine + view->color_spin) % 64]);
+					(imagine + view->color_spin) % 64]);
 			}
 		}
 	}

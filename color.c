@@ -64,7 +64,7 @@ void			hardset_color_table(t_view *view)
 		0xFB5A38, 0xFB4F39, 0xFB453A, 0xFC3A3A
 	};
 
-	view->color = (int*)malloc(sizeof(int) * 64);
+	view->color = (int*)ft_memalloc(sizeof(int) * 64);
 	i = -1;
 	while (++i < 64)
 		view->color[i] = color[i];

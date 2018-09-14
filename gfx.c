@@ -71,6 +71,8 @@ t_view			*create_view(void *mlx)
 	view->pressed->i = 0;
 	view->pressed->k = 0;
 	view->pressed->q = 0;
+	view->pressed->z = 0;
+	view->pressed->e = 0;
 	init_color_table(view, 64);
 	view->mlx = mlx;
 	return (view);

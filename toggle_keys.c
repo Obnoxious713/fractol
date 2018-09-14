@@ -41,22 +41,22 @@ void			toggle_pressed(int keycode, t_view *view, int toggle)
 {
 	toggle_wasd(keycode, view, toggle);
 	toggle_ijkl(keycode, view, toggle);
-	/* if (keycode == KEY_X)
+	if (keycode == KEY_X)
 		view->pressed->x = toggle;
 	if (keycode == KEY_Y)
 		view->pressed->y = toggle;
 	if (keycode == KEY_Z)
-		view->pressed->z = toggle; */
+		view->pressed->z = toggle;
 	if (keycode == KEY_Q)
 		view->pressed->q = toggle;
 	if (keycode == KEY_E)
 		view->pressed->e = toggle;
-	/* if (keycode == KEY_O)
+	if (keycode == KEY_O)
 		view->pressed->o = toggle;
 	if (keycode == KEY_P)
 		view->pressed->p = toggle;
 	if (keycode == KEY_PLUS)
 		view->pressed->plus = toggle;
 	if (keycode == KEY_MINUS)
-		view->pressed->minus = toggle; */
+		view->pressed->minus = toggle;
 }

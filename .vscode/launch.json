@@ -8,8 +8,8 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/cursus/fractol",
-            "args": [],
+            "program": "${workspaceFolder}/fractol",
+            "args": ["2"],
             "cwd": "${workspaceFolder}"
         }
     ]
