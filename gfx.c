@@ -30,12 +30,12 @@ void			redraw(t_view *view)
 void			init_view(t_view *view)
 {
 	view->changed = 1;
-	view->max_iter = 64;
+	view->max_iter = 256;
 	view->width = 1200;
 	view->height = 1200;
 	view->mouse_x = 0;
 	view->mouse_y = 0;
-	view->color_spin = 0;
+	view->color_inc = 0;
 	view->zoom = 1.0;
 	view->x_shift = 0;
 	view->y_shift = 0;
@@ -73,7 +73,7 @@ t_view			*create_view(void *mlx)
 	view->pressed->q = 0;
 	view->pressed->z = 0;
 	view->pressed->e = 0;
-	init_color_table(view, 64);
+	init_color_table(view, 256);
 	view->mlx = mlx;
 	return (view);
 }

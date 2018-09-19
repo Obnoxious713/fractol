@@ -61,7 +61,7 @@
     "editor.renderWhitespace": "boundary",
     "editor.insertSpaces": false,
 	"editor.detectIndentation": true,
-	"dimmer.enabled": true,
+	"dimmer.enabled": false,
 	"dimmer.toggleDimmerCommandScope": "workspace",
 	"dimmer.context": 5,
 	"dimmer.opacity": 66,
@@ -89,6 +89,4 @@
 		"borderStyle": "none none solid none"
 	},
 	"subtleBrackets.disableNative": true,
-	"C_Cpp.autocomplete": "Default",
-	"betterComment.forcedLineComment"
 }

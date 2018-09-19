@@ -39,7 +39,7 @@ void			set_to_black(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color = (int*)ft_memalloc(sizeof(int) * 64);
+	view->color = (int*)ft_memalloc(sizeof(int) * 256);
 }
 
 void			hardset_color_table(t_view *view)
@@ -54,8 +54,8 @@ void			hardset_color_table(t_view *view)
 		0x000057, 0x000037, 0x000017 ,0x000000
 	};
 
-	view->color = (int*)ft_memalloc(sizeof(int) * 64);
+	view->color = (int*)ft_memalloc(sizeof(int) * 256);
 	i = -1;
-	while (++i < 64)
+	while (++i < 256)
 		view->color[i] = color[i];
 }

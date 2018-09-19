@@ -17,20 +17,20 @@ void			show_fractal(t_view *view)
 {
 	int			x;
 	int			y;
-	int			imagine;
+	int			i;
 
-	imagine = 0;
+	i = 0;
 	y = -1;
 	while (++y < view->height)
 	{
 		x = -1;
 		while (++x < view->width)
 		{
-			imagine = view->fract_func(view, x, y);
-			if (imagine < view->max_iter)
+			i = view->fract_func(view, x, y);
+			if (i < view->max_iter)
 			{
 				put_pixel_to_img(view, x, y, view->color[
-					(imagine + view->color_spin) % 64]);
+					(i + view->color_inc) % 256]);
 			}
 		}
 	}

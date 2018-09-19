@@ -10,25 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libgfx.a
-FLAGS =	-Wall -Wextra -Werror -g
-CC = 	gcc
-ODIR =	./bin/
+NAME = libgfx.a
+FLAGS = -Wall -Wextra -Werror -g
+CC = gcc
+ODIR = ./bin/
 IDIR =
-OBJ =	$(SRC:.c=.o)
-EXT =	$(IDIR)$(NAME:.a=.h)
+OBJ = $(SRC:.c=.o)
+EXT = $(IDIR)$(NAME:.a=.h)
 
-EXT +=	Makefile
+EXT += Makefile
 
-SRC	=	ft_drawline.c \
+SRC = ft_drawline.c \
 		matrix_math.c \
 		transform_matrix.c \
 		initializers.c
 
-O =		$(addprefix $(ODIR), $(OBJ))
+O = $(addprefix $(ODIR), $(OBJ))
 
-MLXINC	= -I./minilibx
-LFTINC	= -I../libft
+MLXINC = -I./minilibx
+LFTINC = -I../libft
 
 all: $(NAME)
 

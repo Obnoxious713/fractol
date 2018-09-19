@@ -70,9 +70,9 @@ int				loop_hook(t_view *view)
 	else if (view->pressed->k && view->zoom > 1)
 		view->zoom = (view->zoom - 1) * 1.1;
 	else if (view->pressed->q)
-		view->color_spin++;
+		view->color_inc++;
 	else if (view->pressed->z)
-		view->color_spin--;
+		view->color_inc--;
 	if (view->changed)
 		redraw(view);
 	return (0);
