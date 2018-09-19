@@ -67,7 +67,7 @@ typedef struct		s_view
 /*
 ** ------ FUNCTIONS ------
 */
-void		usage(void);
+void			usage(void);
 
 int				mouse_release_hook(int button, int x, int y, t_view *view);
 int				mouse_press_hook(int button, int x, int y, t_view *view);
@@ -91,7 +91,7 @@ void			init_view(t_view *view);
 void			redraw(t_view *view);
 
 void			hardset_color_table(t_view *view);
-void			trip_color_table(t_view *view);
+void			set_to_black(t_view *view);
 void			init_color_table(t_view *view, int color_nbr);
 
 int				mandelbrot(t_view *view, double real, double imagine);

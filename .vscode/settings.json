@@ -51,19 +51,44 @@
 			"backgroundColor": "transparent"
 		}
 	],
-	"subtleBrackets.bracketPairs": [
-		"{}",
-		"[]",
-		"()"
-	],
 	"files.associations": {
 		"*.h": "c",
 		"limits": "c"
 	},
-	"editor.matchBrackets": false,
+	"editor.matchBrackets": true,
     "explorer.confirmDelete": false,
     "editor.tabSize": 4,
     "editor.renderWhitespace": "boundary",
     "editor.insertSpaces": false,
-    "editor.detectIndentation": true
+	"editor.detectIndentation": true,
+	"dimmer.enabled": true,
+	"dimmer.toggleDimmerCommandScope": "workspace",
+	"dimmer.context": 5,
+	"dimmer.opacity": 66,
+	"subtleBrackets.pairs": [
+		{
+			"open": "(",
+			"close": ")"
+		},
+		{
+			"open": "[",
+			"close": "]"
+		},
+		{
+			"open": "{",
+			"close": "}"
+		},
+		{
+			"open": "<",
+			"close": ">"
+		}
+	],
+	"subtleBrackets.parse": true,
+	"subtleBrackets.style": {
+		"borderWidth": "1px",
+		"borderStyle": "none none solid none"
+	},
+	"subtleBrackets.disableNative": true,
+	"C_Cpp.autocomplete": "Default",
+	"betterComment.forcedLineComment"
 }

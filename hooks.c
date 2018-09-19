@@ -22,6 +22,10 @@ int				key_release_hook(int keycode, t_view *view)
 
 int				key_press_hook(int keycode, t_view *view)
 {
+	if (keycode == KEY_T)
+		set_to_black(view);
+	if (keycode == KEY_C)
+		hardset_color_table(view);
 	if (keycode == KEY_SPACE)
 		view->pressed->space = !view->pressed->space;
 	if (keycode == KEY_E)
