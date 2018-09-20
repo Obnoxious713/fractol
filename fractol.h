@@ -46,7 +46,7 @@ typedef struct		s_view
 	int				line_size;
 	int				endian;
 	int				max_iter;
-	int				count[256];
+	int				count[122];
 	int				width;
 	int				height;
 	double			mouse_x;

@@ -30,7 +30,7 @@ void			show_fractal(t_view *view)
 			if (i < view->max_iter)
 			{
 				put_pixel_to_img(view, x, y, view->color[
-					(i + view->color_inc) % 256]);
+					(i + view->color_inc) % 122]);
 			}
 		}
 	}
