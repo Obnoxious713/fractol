@@ -26,6 +26,8 @@ int				key_press_hook(int keycode, t_view *view)
 		set_to_black(view);
 	if (keycode == KEY_C)
 		hardset_color_table(view);
+	if (keycode == KEY_V)
+		hardset_delek(view);
 	if (keycode == KEY_SPACE)
 		view->pressed->space = !view->pressed->space;
 	if (keycode == KEY_E)

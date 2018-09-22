@@ -61,3 +61,27 @@ void			hardset_color_table(t_view *view)
 	while (++i < 122)
 		view->color[i] = color[i];
 }
+
+void			hardset_delek(t_view *view)
+{
+	int			i;
+	static int	color[] = {
+		DRK_RED, DRK_RED + 25, DRK_RED + 50, DRK_RED + 75,
+		DRK_RED + 77, DRK_RED + 154, DRK_RED + 231,
+		DRK_MAGENTA, DRK_MAGENTA + 25, DRK_MAGENTA + 50, DRK_MAGENTA + 75,
+		DRK_MAGENTA + 77, DRK_MAGENTA + 154, DRK_MAGENTA + 231,
+		DEEP_PINK, DEEP_PINK + 25, DEEP_PINK + 50, DEEP_PINK + 75,
+		DEEP_PINK + 77, DEEP_PINK + 154, DEEP_PINK + 231,
+		DRK_GREEN, DRK_GREEN + 25, DRK_GREEN + 50, DRK_GREEN + 75,
+		DRK_GREEN + 77, DRK_GREEN + 154, DRK_GREEN + 231,
+		DRK_CYAN, DRK_CYAN + 25, DRK_CYAN + 50, DRK_CYAN + 75,
+		DRK_CYAN + 77, DRK_CYAN + 154, DRK_CYAN + 231,
+		COBALT, DRK_CYAN + 25, DRK_CYAN + 50, DRK_CYAN + 75,
+		COBALT + 77, COBALT + 154, COBALT + 231,
+	};
+
+	view->color = (int*)ft_memalloc(sizeof(int) * 122);
+	i = -1;
+	while (++i < 122)
+		view->color[i] = color[i];
+}

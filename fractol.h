@@ -22,6 +22,7 @@
 # include "libgfx/minilibx/mlx.h"
 # include "libft/libft.h"
 # include "keys.h"
+# include "colors.h"
 
 /*
 ** ------ TYPEDEFS ------
@@ -91,6 +92,7 @@ void			init_view(t_view *view);
 void			redraw(t_view *view);
 
 void			hardset_color_table(t_view *view);
+void			hardset_delek(t_view *view);
 void			set_to_black(t_view *view);
 void			init_color_table(t_view *view, int color_nbr);
 
