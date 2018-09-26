@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+# include <pthread.h>
 # include "libgfx/minilibx/mlx.h"
 # include "libft/libft.h"
 # include "keys.h"
@@ -65,6 +66,13 @@ typedef struct		s_view
 	t_keys			*pressed;
 }					t_view;
 
+typedef struct	s_thread
+{
+	t_view		*view;
+	int			count;
+	int			num;
+}				t_thread;
+
 /*
 ** ------ FUNCTIONS ------
 */
@@ -99,6 +107,8 @@ void			init_color_table(t_view *view, int color_nbr);
 int				mandelbrot(t_view *view, double real, double imag);
 int				julia(t_view *view, double x, double y);
 int				julia_mouse(t_view *view, double x, double y);
+int				julia_cubed(t_view *view, double x, double y);
+int				julia_cubed_mouse(t_view *view, double x, double y);
 
 void			show_fractal(t_view *view);
 

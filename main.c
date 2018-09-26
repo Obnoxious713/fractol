@@ -29,7 +29,7 @@ int			main(int ac, char **av)
 		usage();
 	mlx = mlx_init();
 	view = create_view(mlx);
-	if (av[1][0] == '1' || av[1][0] == '2')
+	if (av[1][0] == '1' || av[1][0] == '2' || av[1][0] == '3')
 		view->mode = av[1][0];
 	else
 		usage();

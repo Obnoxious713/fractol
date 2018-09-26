@@ -20,8 +20,8 @@ void			redraw(t_view *view)
 		view->fract_func = mandelbrot;
 	else if (view->mode == '2')
 		view->fract_func = julia_mouse;
-	// else
-		// view->fract_func = julia_cubed_mouse;
+	else if (view->mode == '3')
+		view->fract_func = julia_cubed_mouse;
 	// thread_fractal(view);
 	show_fractal(view);
 	use_image(view);
