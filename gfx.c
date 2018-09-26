@@ -20,17 +20,16 @@ void			redraw(t_view *view)
 		view->fract_func = mandelbrot;
 	else if (view->mode == '2')
 		view->fract_func = julia_mouse;
-	else if (view->mode == '3')
+	else
 		view->fract_func = julia_cubed_mouse;
-	// thread_fractal(view);
-	show_fractal(view);
+	thread_fractal(view);
 	use_image(view);
 }
 
 void			init_view(t_view *view)
 {
 	view->changed = 1;
-	view->max_iter = 122;
+	view->max_iter = 244;
 	view->width = 1200;
 	view->height = 1200;
 	view->mouse_x = 0;
@@ -73,7 +72,7 @@ t_view			*create_view(void *mlx)
 	view->pressed->q = 0;
 	view->pressed->z = 0;
 	view->pressed->e = 0;
-	init_color_table(view, 122);
+	init_color_table(view, 244);
 	view->mlx = mlx;
 	return (view);
 }

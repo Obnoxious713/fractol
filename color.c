@@ -39,7 +39,7 @@ void			set_to_black(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color = (int*)ft_memalloc(sizeof(int) * 122);
+	view->color = (int*)ft_memalloc(sizeof(int) * 244);
 }
 
 void			hardset_color_table(t_view *view)
@@ -56,9 +56,9 @@ void			hardset_color_table(t_view *view)
 		0x000057, 0x000037, 0x000017 ,0x000000
 	};
 
-	view->color = (int*)ft_memalloc(sizeof(int) * 122);
+	view->color = (int*)ft_memalloc(sizeof(int) * 244);
 	i = -1;
-	while (++i < 122)
+	while (++i < 244)
 		view->color[i] = color[i];
 }
 
@@ -80,8 +80,8 @@ void			hardset_delek(t_view *view)
 		COBALT + 77, COBALT + 154, COBALT + 231,
 	};
 
-	view->color = (int*)ft_memalloc(sizeof(int) * 122);
+	view->color = (int*)ft_memalloc(sizeof(int) * 244);
 	i = -1;
-	while (++i < 122)
+	while (++i < 244)
 		view->color[i] = color[i];
 }

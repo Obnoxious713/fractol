@@ -67,13 +67,16 @@ libgfx: $(LIBGFX)
 mlx: $(MLX)
 
 $(LIBFT):
-	@make -C ./libft
+	@echo "\n-> Making libft ...\n"
+	@make -C ./libft re
 
 $(LIBGFX):
-	@make -C ./libgfx
+	@echo "\n-> Making libgfx ...\n"
+	@make -C ./libgfx re
 
 $(MLX):
-	@make -C ./libgfx/minilibx
+	@echo "\n-> Making minilibx ...\n"
+	@make -C ./libgfx/minilibx re
 
 $(NAME): $(OBJ)
 	@echo "-> Compiling $(NAME)..."
@@ -92,7 +95,6 @@ fclean: clean
 	@rm -rf $(NAME)
 	@make -C ./libft fclean
 	@make -C ./libgfx fclean
-	@make -C ./libgfx/minilibx clean
 
 re: fclean all
 

@@ -13,6 +13,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# define THREAD_NUM 16
+
 /*
 ** ------ LIBRARIES ------
 */
@@ -48,7 +50,7 @@ typedef struct		s_view
 	int				line_size;
 	int				endian;
 	int				max_iter;
-	int				count[122];
+	int				count[244];
 	int				width;
 	int				height;
 	double			mouse_x;
@@ -70,7 +72,7 @@ typedef struct	s_thread
 {
 	t_view		*view;
 	int			count;
-	int			num;
+	int			id;
 }				t_thread;
 
 /*
@@ -110,6 +112,9 @@ int				julia_mouse(t_view *view, double x, double y);
 int				julia_cubed(t_view *view, double x, double y);
 int				julia_cubed_mouse(t_view *view, double x, double y);
 
+void			fract_thread(void *thread_arg);
+pthread_t		make_thread(t_view *view, int index, int count);
+void			thread_fractal(t_view *view);
 void			show_fractal(t_view *view);
 
 t_view			*create_view(void *mlx);
