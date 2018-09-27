@@ -14,14 +14,14 @@
 
 int				mandelbrot(t_view *view, double real, double imag)
 {
-	double		new_x;
+	int			i;
 	double		x;
 	double		y;
-	int			i;
+	double		new_x;
 
+	i = 0;
 	x = 0;
 	y = 0;
-	i = 0;
 	real = ((4.0 * real / view->width - 2.0) / view->zoom)
 			+ (view->x_shift / view->width);
 	imag = ((4.0 * imag / view->height - 2.0) / view->zoom)
@@ -48,8 +48,8 @@ int				julia(t_view *view, double x, double y)
 			+ (view->y_shift / view->height);
 	while (x * x + y * y < 4.0 && i < view->max_iter)
 	{
-		new_x = x * x - y * y + view->fract->real;
-		y = 2 * x * y + view->fract->imag;
+		new_x = x * x - y * y + view->fract->complex->real;
+		y = 2 * x * y + view->fract->complex->imag;
 		x = new_x;
 		i++;
 	}
@@ -58,12 +58,12 @@ int				julia(t_view *view, double x, double y)
 
 int				julia_mouse(t_view *view, double x, double y)
 {
-	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
-	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
+	view->fract->complex->real = view->mouse_x * 4.0 / view->width - 2;
+	view->fract->complex->imag = view->mouse_y * 4.0 / view->height - 2;
 	return (julia(view, x, y));
 }
 
-int				julia_cubed(t_view *view, double x, double y)
+int				newton(t_view *view, double x, double y)
 {
 	int			i;
 	long double new_x;
@@ -75,17 +75,25 @@ int				julia_cubed(t_view *view, double x, double y)
 			+ (view->y_shift / view->height);
 	while (x * x + y * y < 4.0 && i < view->max_iter)
 	{
-		new_x = x * x * x - y * y * x - (2 * x * y * y) + view->fract->real;
-		y = 2 * x * x * y - y * y * y + view->fract->imag;
+		new_x = x * x * x - y * y * x - (2 * x * y * y) + view->fract->complex->real;
+		y = 2 * x * x * y - y * y * y + view->fract->complex->imag;
 		x = new_x;
 		i++;
 	}
 	return (i);
 }
 
-int				julia_cubed_mouse(t_view *view, double x, double y)
+// int				newton_derivative(t_view *view, double x, double y)
+// {
+// 	int 		i;
+
+
+// 	return (i);
+// }
+
+int				newton_mouse(t_view *view, double x, double y)
 {
-	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
-	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
-	return (julia_cubed(view, x, y));
+	view->fract->complex->real = view->mouse_x * 4.0 / view->width - 2;
+	view->fract->complex->imag = view->mouse_y * 4.0 / view->height - 2;
+	return (newton(view, x, y));
 }

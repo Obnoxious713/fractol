@@ -40,6 +40,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_complex
+{
+	long double		real;
+	long double		imag;
+}					t_complex;
+
 int					ft_atoi(const char *str);
 int					ft_atoi_base(const char *str, int base);
 void				ft_bzero(void *s, size_t n);
@@ -121,5 +127,10 @@ char				*ft_strrev(char *str);
 char				*ft_strtoupper(char *str);
 char				*ft_itoa_base(int n, int base);
 int					ft_wstrlen(wchar_t *str);
+void				ft_cadd(t_complex x, t_complex y);
+void				ft_csub(t_complex x, t_complex y);
+void				ft_cmult(t_complex x, t_complex y);
+void				ft_cdiv(t_complex x, t_complex y);
+void				ft_cpow(t_complex x, double e);
 
 #endif

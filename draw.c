@@ -33,10 +33,8 @@ void			fract_thread(void *thread_arg)
 			i = view->fract_func(view, x, y);
 			if (i < view->max_iter)
 			{
-				// if (view->trippy)
-				// 	view->count[i % 244]++;
 				put_pixel_to_img(view, x, y, view->color[
-					(i + view->color_inc) % 244]);
+					(i + view->color_inc) % 128]);
 			}
 		}
 	}
@@ -86,10 +84,8 @@ void			show_fractal(t_view *view)
 			i = view->fract_func(view, x, y);
 			if (i < view->max_iter)
 			{
-				// if (view->trippy)
-				// 	view->count[i % 244]++;
 				put_pixel_to_img(view, x, y, view->color[
-					(i + view->color_inc) % 244]);
+					(i + view->color_inc) % 128]);
 			}
 		}
 	}

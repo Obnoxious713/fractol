@@ -22,16 +22,22 @@ int				key_release_hook(int keycode, t_view *view)
 
 int				key_press_hook(int keycode, t_view *view)
 {
-	if (keycode == KEY_T)
-		set_to_black(view);
-	if (keycode == KEY_C)
-		hardset_color_table(view);
-	if (keycode == KEY_V)
-		hardset_delek(view);
+	if (keycode == KEY_R)
+		initial_color(view);
+	else if (keycode == KEY_T)
+		color1(view);
+	else if (keycode == KEY_Y)
+		color2(view);
+	else if (keycode == KEY_U)
+		color3(view);
+	else if (keycode == KEY_E)
+		color4(view);
+	// if (keycode == KEY_C)
+	// 	hardset_color_table(view);
+	// if (keycode == KEY_V)
+	// 	hardset_delek(view);
 	if (keycode == KEY_SPACE)
 		view->pressed->space = !view->pressed->space;
-	if (keycode == KEY_E)
-		view->trippy = !view->trippy;
 	if (keycode == KEY_ESC)
 		exit(0);
 	toggle_pressed(keycode, view, 1);
@@ -60,18 +66,18 @@ int				loop_hook(t_view *view)
 		view->pressed->q || view->pressed->z)
 		view->changed = 1;
 	if (view->pressed->a)
-		view->x_shift += 10;
+		view->x_shift -= 7;
 	else if (view->pressed->d)
-		view->x_shift -= 10;
+		view->x_shift += 7;
 	if (view->pressed->w)
-		view->y_shift += 10;
+		view->y_shift -= 7;
 	else if (view->pressed->s)
-		view->y_shift -= 10;
+		view->y_shift += 7;
 	if (view->pressed->i)
 		view->zoom = (view->zoom + 1) * 1.1;
 	else if (view->pressed->k && view->zoom > 1)
 		view->zoom = (view->zoom - 1) * 1.1;
-	else if (view->pressed->q)
+	if (view->pressed->q)
 		view->color_inc++;
 	else if (view->pressed->z)
 		view->color_inc--;

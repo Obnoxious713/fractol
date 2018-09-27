@@ -34,8 +34,7 @@ typedef struct		s_fract
 {
 	long double		x;
 	long double		y;
-	long double		real;
-	long double 	imag;
+	t_complex		*complex;
 }					t_fract;
 
 typedef struct		s_view
@@ -50,7 +49,7 @@ typedef struct		s_view
 	int				line_size;
 	int				endian;
 	int				max_iter;
-	int				count[244];
+	int				count[128];
 	int				width;
 	int				height;
 	double			mouse_x;
@@ -61,8 +60,6 @@ typedef struct		s_view
 	double			y_shift;
 	char			mode;
 	int				changed:1;
-	int				trippy:1;
-	int				fuzz:1;
 	int				(*fract_func)(struct s_view*, double x, double y);
 	t_fract			*fract;
 	t_keys			*pressed;
@@ -101,25 +98,25 @@ void			set_hooks(t_view *view);
 void			init_view(t_view *view);
 void			redraw(t_view *view);
 
-void			hardset_color_table(t_view *view);
-void			hardset_delek(t_view *view);
-void			set_to_black(t_view *view);
-void			init_color_table(t_view *view, int color_nbr);
+//void			hardset_color_table(t_view *view);
+//void			hardset_delek(t_view *view);
+void			initial_color(t_view *view);
+void			color1(t_view *view);
+void			color2(t_view *view);
+void			color3(t_view *view);
+void			color4(t_view *view);
+void			init_color_table(t_view *view, int color_nbr, int r, int g, int b);
+// void			init_color_table(t_view *view, int color_nbr);
 
 int				mandelbrot(t_view *view, double real, double imag);
 int				julia(t_view *view, double x, double y);
 int				julia_mouse(t_view *view, double x, double y);
-int				julia_cubed(t_view *view, double x, double y);
-int				julia_cubed_mouse(t_view *view, double x, double y);
+int				newton(t_view *view, double x, double y);
+int				newton_mouse(t_view *view, double x, double y);
 
 void			fract_thread(void *thread_arg);
 pthread_t		make_thread(t_view *view, int index, int count);
 void			thread_fractal(t_view *view);
 void			show_fractal(t_view *view);
-
-t_view			*create_view(void *mlx);
-void			set_hooks(t_view *view);
-void			init_view(t_view *view);
-void			redraw(t_view *view);
 
 #endif

@@ -20,8 +20,8 @@ void			redraw(t_view *view)
 		view->fract_func = mandelbrot;
 	else if (view->mode == '2')
 		view->fract_func = julia_mouse;
-	else
-		view->fract_func = julia_cubed_mouse;
+	// else
+	// 	view->fract_func = newton_mouse;
 	thread_fractal(view);
 	use_image(view);
 }
@@ -29,7 +29,7 @@ void			redraw(t_view *view)
 void			init_view(t_view *view)
 {
 	view->changed = 1;
-	view->max_iter = 244;
+	view->max_iter = 128;
 	view->width = 1200;
 	view->height = 1200;
 	view->mouse_x = 0;
@@ -38,8 +38,6 @@ void			init_view(t_view *view)
 	view->zoom = 1.0;
 	view->x_shift = 0;
 	view->y_shift = 0;
-	view->trippy = 0;
-	view->fuzz = 0;
 }
 
 void			set_hooks(t_view *view)
@@ -61,6 +59,7 @@ t_view			*create_view(void *mlx)
 	view = (t_view*)ft_memalloc(sizeof(t_view));
 	view->pressed = (t_keys*)ft_memalloc(sizeof(t_keys));
 	view->fract = (t_fract*)ft_memalloc(sizeof(t_fract));
+	view->fract->complex = (t_complex*)ft_memalloc(sizeof(t_complex));
 	init_view(view);
 	view->pressed->space = 0;
 	view->pressed->w = 0;
@@ -72,7 +71,7 @@ t_view			*create_view(void *mlx)
 	view->pressed->q = 0;
 	view->pressed->z = 0;
 	view->pressed->e = 0;
-	init_color_table(view, 244);
+	initial_color(view);
 	view->mlx = mlx;
 	return (view);
 }
