@@ -107,7 +107,9 @@ SRC = ft_atoi.c \
 		ft_strtoupper.c \
 		ft_itoa_base.c \
 		ft_wstrlen.c \
-		ft_printf.c
+		ft_printf.c \
+		ft_ipow.c \
+		ft_dpow.c
 		# ft_cadd.c \
 		# ft_csub.c \
 		# ft_cmult.c \

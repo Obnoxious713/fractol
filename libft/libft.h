@@ -128,6 +128,8 @@ char				*ft_strtoupper(char *str);
 char				*ft_itoa_base(int n, int base);
 int					ft_wstrlen(wchar_t *str);
 int					ft_printf(const char *format, ...);
+int					ft_ipow(double base, int power);
+double				ft_dpow(double base, int power);
 // t_complex			ft_cadd(t_complex x, t_complex y);
 // t_complex			ft_csub(t_complex x, t_complex y);
 // t_complex			ft_cmult(t_complex x, t_complex y);
