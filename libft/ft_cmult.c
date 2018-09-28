@@ -12,10 +12,11 @@
 
 #include "libft.h"
 
-void			ft_cmult(t_complex x, t_complex y)
+t_complex		ft_cmult(t_complex x, t_complex y)
 {
 	t_complex	result;
 
 	result.real = (x.real * y.real) - (x.imag * y.imag);
 	result.imag = (x.real * y.imag) + (x.imag * y.imag);
+	return (result);
 }

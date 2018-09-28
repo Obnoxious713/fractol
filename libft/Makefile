@@ -107,12 +107,12 @@ SRC = ft_atoi.c \
 		ft_strtoupper.c \
 		ft_itoa_base.c \
 		ft_wstrlen.c \
-		ft_printf.c \
-		ft_cadd.c \
-		ft_csub.c \
-		ft_cmult.c \
-		ft_cdiv.c \
-		ft_cpow.c
+		ft_printf.c
+		# ft_cadd.c \
+		# ft_csub.c \
+		# ft_cmult.c \
+		# ft_cdiv.c \
+		# ft_cpow.c
 
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 # OBJ = $(patsubst %.c, %.o, $(SRC))

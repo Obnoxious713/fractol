@@ -12,10 +12,11 @@
 
 #include "libft.h"
 
-void			ft_cpow(t_complex x, double e)
+t_complex		ft_cpow(t_complex x, double e)
 {
 	t_complex	result;
 
 	result.real = pow(e, x.real) * cos(x.imag);
 	result.imag = pow(e, x.real) * sin(x.imag);
+	return (result);
 }

@@ -12,10 +12,11 @@
 
 #include "libft.h"
 
-void			ft_csub(t_complex x, t_complex y)
+t_complex		ft_csub(t_complex x, t_complex y)
 {
 	t_complex	result;
 
 	result.real = x.real - y.real;
 	result.imag = x.imag - y.imag;
+	return (result);
 }

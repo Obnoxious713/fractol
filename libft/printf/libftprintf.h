@@ -68,7 +68,6 @@ typedef struct	s_print
 /*
 ** ------ FUNCTIONS ------
 */
-int				ft_printf(const char *format, ...);
 void			print_flags_start(t_type *type, t_print *print,
 							long num, char *str);
 void			print_flags_end(t_type *type, t_print *print,

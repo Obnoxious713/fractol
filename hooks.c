@@ -22,20 +22,16 @@ int				key_release_hook(int keycode, t_view *view)
 
 int				key_press_hook(int keycode, t_view *view)
 {
-	if (keycode == KEY_R)
+	if (keycode == KEY_ONE)
 		initial_color(view);
-	else if (keycode == KEY_T)
+	else if (keycode == KEY_TWO)
 		color1(view);
-	else if (keycode == KEY_Y)
+	else if (keycode == KEY_THREE)
 		color2(view);
-	else if (keycode == KEY_U)
+	else if (keycode == KEY_FOUR)
 		color3(view);
-	else if (keycode == KEY_E)
+	else if (keycode == KEY_FIVE)
 		color4(view);
-	// if (keycode == KEY_C)
-	// 	hardset_color_table(view);
-	// if (keycode == KEY_V)
-	// 	hardset_delek(view);
 	if (keycode == KEY_SPACE)
 		view->pressed->space = !view->pressed->space;
 	if (keycode == KEY_ESC)
@@ -62,24 +58,34 @@ int				exit_hook(t_view *view)
 int				loop_hook(t_view *view)
 {
 	if (view->pressed->a || view->pressed->s || view->pressed->w ||
-		view->pressed->d || view->pressed->i || view->pressed->k ||
-		view->pressed->q || view->pressed->z)
+		view->pressed->d || view->pressed->q || view->pressed->z ||
+		view->pressed->num_minus || view->pressed->num_plus ||
+		view->pressed->left || view->pressed->right || view->pressed->up
+		|| view->pressed->down)
 		view->changed = 1;
 	if (view->pressed->a)
-		view->x_shift -= 7;
+		view->x_shift -= 1;
 	else if (view->pressed->d)
-		view->x_shift += 7;
+		view->x_shift += 1;
 	if (view->pressed->w)
-		view->y_shift -= 7;
+		view->y_shift -= 1;
 	else if (view->pressed->s)
-		view->y_shift += 7;
+		view->y_shift += 1;
+	if (view->pressed->left)
+		view->x_shift -= 10;
+	else if (view->pressed->right)
+		view->x_shift += 10;
+	if (view->pressed->up)
+		view->y_shift -= 10;
+	else if (view->pressed->down)
+		view->y_shift += 10;
 	if (view->pressed->i)
 		view->zoom = (view->zoom + 1) * 1.1;
-	else if (view->pressed->k && view->zoom > 1)
+	else if (view->pressed->o && view->zoom > 1)
 		view->zoom = (view->zoom - 1) * 1.1;
-	if (view->pressed->q)
+	if (view->pressed->num_plus)
 		view->color_inc++;
-	else if (view->pressed->z)
+	else if (view->pressed->num_minus)
 		view->color_inc--;
 	if (view->changed)
 		redraw(view);

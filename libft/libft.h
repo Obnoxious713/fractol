@@ -127,10 +127,11 @@ char				*ft_strrev(char *str);
 char				*ft_strtoupper(char *str);
 char				*ft_itoa_base(int n, int base);
 int					ft_wstrlen(wchar_t *str);
-void				ft_cadd(t_complex x, t_complex y);
-void				ft_csub(t_complex x, t_complex y);
-void				ft_cmult(t_complex x, t_complex y);
-void				ft_cdiv(t_complex x, t_complex y);
-void				ft_cpow(t_complex x, double e);
+int					ft_printf(const char *format, ...);
+// t_complex			ft_cadd(t_complex x, t_complex y);
+// t_complex			ft_csub(t_complex x, t_complex y);
+// t_complex			ft_cmult(t_complex x, t_complex y);
+// t_complex			ft_cdiv(t_complex x, t_complex y);
+// t_complex			ft_cpow(t_complex x, double e);
 
 #endif

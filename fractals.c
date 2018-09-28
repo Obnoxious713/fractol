@@ -66,22 +66,16 @@ int				julia_mouse(t_view *view, double x, double y)
 int				newton(t_view *view, double x, double y)
 {
 	int			i;
-	long double new_x;
+	// long double new_x;
 
 	i = 0;
 	x = ((4.0 * x / view->width - 2.0) / view->zoom)
 		+ (view->x_shift /view->width);
 	y = ((4.0 * y / view->height - 2.0) / view->zoom)
 			+ (view->y_shift / view->height);
-	while (x * x + y * y < 4.0 && i < view->max_iter)
-	{
-		new_x = x * x * x - y * y * x - (2 * x * y * y) + view->fract->complex->real;
-		y = 2 * x * x * y - y * y * y + view->fract->complex->imag;
-		x = new_x;
-		i++;
-	}
 	return (i);
 }
+
 
 // int				newton_derivative(t_view *view, double x, double y)
 // {

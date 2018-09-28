@@ -67,26 +67,3 @@ void			thread_fractal(t_view *view)
 	while (++i < tnum)
 		pthread_join(threads[i], NULL);
 }
-
-void			show_fractal(t_view *view)
-{
-	int			x;
-	int			y;
-	int			i;
-
-	i = 0;
-	y = -1;
-	while (++y < view->height)
-	{
-		x = -1;
-		while (++x < view->width)
-		{
-			i = view->fract_func(view, x, y);
-			if (i < view->max_iter)
-			{
-				put_pixel_to_img(view, x, y, view->color[
-					(i + view->color_inc) % 128]);
-			}
-		}
-	}
-}

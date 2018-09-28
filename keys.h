@@ -13,13 +13,6 @@
 #ifndef KEYS_H
 # define KEYS_H
 
-# define KEY_UP 126
-# define KEY_DOWN 125
-# define KEY_SEMI 41
-# define KEY_PLUS 69
-# define KEY_MINUS 78
-# define KEY_SPACE 49
-# define KEY_ESC 53
 # define KEY_A 0
 # define KEY_B 11
 # define KEY_C 8
@@ -46,6 +39,40 @@
 # define KEY_X 7
 # define KEY_Y 16
 # define KEY_Z 6
+# define KEY_ONE 18
+# define KEY_TWO 19
+# define KEY_THREE 20
+# define KEY_FOUR 21
+# define KEY_FIVE 23
+# define KEY_SIX 22
+# define KEY_SEVEN 26
+# define KEY_EIGHT 28
+# define KEY_NINE 25
+# define KEY_ZERO 29
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_ENTER 36
+# define KEY_SPACE 49
+# define KEY_ESC 53
+# define KEY_SEMI 41
+# define KEY_COMMA 43
+# define KEY_PERIOD 47
+# define KEY_QUESTION 44
+# define KEY_DOWN 125
+# define KEY_NUM_PLUS 69
+# define KEY_NUM_MINUS 78
+# define KEY_TILDE 50
+# define KEY_TAB 48
+# define KEY_CAPS 272
+# define KEY_SHIFT_L 257
+# define KEY_CTRL_L 256
+# define KEY_WIN 259
+# define KEY_ALT_L 261
+# define KEY_CTRL_R 269
+# define KEY_ALT_R 262
+# define KEY_SHIFT_R 258
 
 /*
 ** ------ FUNCTIONS ------
@@ -77,6 +104,19 @@ typedef struct	s_keys
 	int			minus:1;
 	int			semi:1;
 	int			space:1;
+	int			num_plus:1;
+	int			num_minus:1;
+	int			tilde:1;
+	int			zero:1;
+	int			one:1;
+	int			two:1;
+	int			three:1;
+	int			four:1;
+	int			five:1;
+	int			six:1;
+	int			seven:1;
+	int			eight:1;
+	int			nine:1;
 }				t_keys;
 
 #endif

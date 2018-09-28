@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void			ft_cdiv(t_complex x, t_complex y)
+t_complex		ft_cdiv(t_complex x, t_complex y)
 {
 	t_complex	result;
 
@@ -22,5 +22,6 @@ void			ft_cdiv(t_complex x, t_complex y)
 						/ (y.imag * y.imag + y.imag * y.imag);
 		result.imag = (x.imag * y.real - x.real * y.imag)
 						/ (y.real * y.real + y.imag * y.imag);
+		return (result);
 	}
 }

@@ -27,9 +27,9 @@ int				motion_hook(int x, int y, t_view *view)
 int				mouse_press_hook(int button, int x, int y, t_view *view)
 {
 	if (button == 1)
-		view->max_iter += 4;
+		view->max_iter += 5;
 	else if (button == 2)
-		view->max_iter -= 8;
+		view->max_iter -= 5;
 	if (button == 5)
 	{
 		x -= view->width / 2;

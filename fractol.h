@@ -98,15 +98,12 @@ void			set_hooks(t_view *view);
 void			init_view(t_view *view);
 void			redraw(t_view *view);
 
-//void			hardset_color_table(t_view *view);
-//void			hardset_delek(t_view *view);
 void			initial_color(t_view *view);
 void			color1(t_view *view);
 void			color2(t_view *view);
 void			color3(t_view *view);
 void			color4(t_view *view);
 void			init_color_table(t_view *view, int color_nbr, int r, int g, int b);
-// void			init_color_table(t_view *view, int color_nbr);
 
 int				mandelbrot(t_view *view, double real, double imag);
 int				julia(t_view *view, double x, double y);
@@ -117,6 +114,5 @@ int				newton_mouse(t_view *view, double x, double y);
 void			fract_thread(void *thread_arg);
 pthread_t		make_thread(t_view *view, int index, int count);
 void			thread_fractal(t_view *view);
-void			show_fractal(t_view *view);
 
 #endif
