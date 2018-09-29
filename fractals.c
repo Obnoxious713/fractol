@@ -66,13 +66,15 @@ int				julia_mouse(t_view *view, double x, double y)
 int				newton(t_view *view, double x, double y)
 {
 	int			i;
-	// long double new_x;
+	long double new_x;
 
 	i = 0;
 	x = ((4.0 * x / view->width - 2.0) / view->zoom)
 		+ (view->x_shift /view->width);
 	y = ((4.0 * y / view->height - 2.0) / view->zoom)
 			+ (view->y_shift / view->height);
+	new_x = (long double)ft_pow(x, 3);
+
 	return (i);
 }
 

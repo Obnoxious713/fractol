@@ -18,12 +18,11 @@
 /*
 ** ------ LIBRARIES ------
 */
-# include <stdlib.h>
-# include <unistd.h>
-# include <math.h>
 # include <pthread.h>
-# include "libgfx/minilibx/mlx.h"
 # include "libft/libft.h"
+# include "libgfx/libgfx.h"
+# include "libgfx/minilibx/mlx.h"
+# include "libft/complex/libftcomplex.h"
 # include "keys.h"
 # include "colors.h"
 
