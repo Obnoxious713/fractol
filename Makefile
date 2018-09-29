@@ -28,37 +28,33 @@ SRC = main.c \
 		mouse_hooks.c \
 		toggle_keys.c
 
-OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
+OBJ = $(addprefix $(ODIR),$(SRC:.c=.o))
 
 LIBFT = ./libft/libft.a
 LIBFTINC = -I./libft
-LINK_FT = -L./libft -lft
+LINK_FT = -L./libft -lft -L./libft/printf -lftprintf -L./libft/complex -lftcomplex
+FT_NAME = libft
 
 MLX = ./libgfx/minilibx/libmlx.a
 MLXINC = -I./libgfx/minilibx
 LINK_MLX = -L./libgfx/minilibx -lmlx -framework OpenGL -framework AppKit
+MLX_NAME = minilibx
 
 LIBGFX = ./libgfx/libgfx.a
 LIBGFXINC = -I./libgfx
 LINK_GFX = -L./libgfx -lgfx
+GFX_NAME = libgfx
 
-SRCDIR = ./
-INCDIR = ./
-OBJDIR = ./bin/
+IDIR = ./
+ODIR = ./bin/
 
 all: obj mlx libgfx libft $(NAME)
 
-gfx:
-	@rm -rf $(NAME)
-	@rm -rf $(OBJ)
-	@make -C ./libgfx fclean
-	@make
-
 obj:
-	@mkdir -p $(OBJDIR)
+	@mkdir -p $(ODIR)
 
-$(OBJDIR)%.o:$(SRCDIR)%.c
-	@$(CC) $(FLAGS) $(MLXINC) $(LIBGFXINC) $(LIBFTINC) -I $(INCDIR) -o $@ -c $<
+$(ODIR)%.o: %.c
+	@$(CC) $(FLAGS) $(MLXINC) $(LIBGFXINC) $(LIBFTINC) -I $(IDIR) -c $< -o $@
 
 libft: $(LIBFT)
 
@@ -67,15 +63,15 @@ libgfx: $(LIBGFX)
 mlx: $(MLX)
 
 $(LIBFT):
-	@echo "\n-> Making libft ...\n"
+	@echo "\n-> Making $(FT_NAME) ...\n"
 	@make -C ./libft re
 
 $(LIBGFX):
-	@echo "\n-> Making libgfx ...\n"
+	@echo "\n-> Making $(GFX_NAME) ...\n"
 	@make -C ./libgfx re
 
 $(MLX):
-	@echo "\n-> Making minilibx ...\n"
+	@echo "\n-> Making $(MLX_NAME) ...\n"
 	@make -C ./libgfx/minilibx re
 
 $(NAME): $(OBJ)

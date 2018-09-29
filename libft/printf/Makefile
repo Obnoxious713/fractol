@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra -Werror -g
 
 CC = gcc
 
-ODIR = ./
+ODIR = ./bin/
 IDIR = ./
 
 SRC = ../ft_bzero.c \
@@ -57,25 +57,19 @@ SRC = ../ft_bzero.c \
 		type.c
 
 OBJ = $(SRC:.c=.o)
-EXT = $(IDIR)$(NAME:.a=.h)
 
 O = $(addprefix $(ODIR), $(OBJ))
 
-LIBFT = ../libft.a
+EXT = $(IDIR)$(NAME:.a=.h)
 
-all: $(NAME)
-
-love: all
+all: $(NAME) extra
 
 norm:
 	norminette -R CheckForbiddenSourceHeader
 
-$(LIBFT):
-	@make -C ./libft
-
-$(NAME): $(OBJ) $(EXT)
-	@echo "-> Creating archive $(NAME)...\n "
-	@ar rc $(NAME) $(OBJ)
+$(NAME): $(O) $(EXT)
+	@echo "-> Creating archive $(NAME)...\n"
+	@ar rc $(NAME) $(O)
 	@ranlib $(NAME)
 
 $(ODIR)%.o: %.c
@@ -86,6 +80,9 @@ $(O): | ./bin
 ./bin:
 	@mkdir -p $(ODIR)
 
+extra:
+	@mv *.o ./bin/
+
 clean:
 	@echo "-> Cleaning $(NAME2) object files..."
 	@rm -rf $(O)
@@ -93,8 +90,5 @@ clean:
 fclean: clean
 	@echo "-> Cleaning $(NAME)...\n"
 	@rm -rf $(NAME)
-	@rm -rf $(NAME2)
 
 re: fclean all
-
-.PHONY: all clean fclean re norm

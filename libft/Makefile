@@ -10,8 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-HEADER = libft.h
-
 FLAGS = -Wall -Werror -Wextra -g
 
 NORM = norminette -R CheckForbiddenSourceHeader
@@ -108,56 +106,59 @@ SRC = ft_atoi.c \
 		ft_itoa_base.c \
 		ft_wstrlen.c \
 		ft_printf.c \
-		ft_ipow.c \
-		ft_dpow.c
-		# ft_cadd.c \
-		# ft_csub.c \
-		# ft_cmult.c \
-		# ft_cdiv.c \
-		# ft_cpow.c
+		ft_pow.c
 
-OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
-# OBJ = $(patsubst %.c, %.o, $(SRC))
+OBJ = $(SRC:.c=.o)
+
+EXT = $(IDIR)$(NAME:.a=.h)
+
+LIBCOMPLEX = ./complex/libftcomplex.a
 
 LIBPF = ./printf/libftprintf.a
-PFINC = -I./printf
 
-SRCDIR = ./
-INCDIR = ./
-OBJDIR = ./
+IDIR = ./
+ODIR = ./bin/
 
-all: obj $(LIBPF) $(NAME)
+O = $(addprefix $(ODIR), $(OBJ))
 
-obj:
-	@mkdir -p $(OBJDIR)
+all: $(LIBPF) $(LIBCOMPLEX) $(NAME) extra_obj
 
 $(LIBPF):
 	@make -C ./printf
 
-$(OBJDIR)%.o:$(SRCDIR)%.c
-	@$(CC) $(FLAGS) -I $(INCDIR) -o $@ -c $<
+$(LIBCOMPLEX):
+	@make -C ./complex
 
-$(NAME): $(OBJ)
-	@echo "-> Creating archive $(NAME)...\n "
-	@ar rc $(NAME) $(OBJ)
+$(ODIR)%.o: %.c
+	@$(CC) $(FLAGS) -I $(IDIR) -c $< -o $@
+
+$(NAME): $(O) $(EXT)
+	@echo "-> Creating archive $(NAME)...\n"
+	@ar rc $(NAME) $(O)
 	@ranlib $(NAME)
+
+$(O): | ./bin
+
+extra_obj:
+	@mv *.o $(ODIR)
+
+./bin:
+	@mkdir $(ODIR)
 
 clean:
 	@echo "-> Cleaning $(NAME2) object files..."
-	@$(RM) $(OBJ)
+	@$(RM) $(O)
 
 fclean: clean
 	@echo "-> Cleaning $(NAME)...\n"
 	@$(RM) $(NAME)
 	@make -C ./printf fclean
+	@make -C ./complex fclean
 
 re: fclean all
 
-#	@$(CC) $(print) $(SRC) -I $(HEADER)
-#	@ar rc $(NAME) $(OBJ)
-#	@ranlib $(NAME)
+norm:
+	$(NORM)
 
 .PHONY: all clean fclean re
 
-norm:
-	$(NORM)

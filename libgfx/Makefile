@@ -11,21 +11,25 @@
 # **************************************************************************** #
 
 NAME = libgfx.a
-FLAGS = -Wall -Wextra -Werror -g
-CC = gcc
-ODIR = ./bin/
-IDIR =
-OBJ = $(SRC:.c=.o)
-EXT = $(IDIR)$(NAME:.a=.h)
+NAME2 = libgfx
 
-EXT += Makefile
+FLAGS = -Wall -Wextra -Werror -g
+
+CC = gcc
+
+ODIR = ./bin/
+IDIR = ./
 
 SRC = ft_drawline.c \
 		matrix_math.c \
 		transform_matrix.c \
 		initializers.c
 
+OBJ = $(SRC:.c=.o)
+
 O = $(addprefix $(ODIR), $(OBJ))
+
+EXT = $(IDIR)$(NAME:.a=.h)
 
 MLXINC = -I./minilibx
 LFTINC = -I../libft
@@ -38,11 +42,11 @@ norm:
 	norminette $(S)
 
 $(NAME): $(O) $(EXT)
+	@echo "-> Creating archive $(NAME)...\n"
 	@ar rc $(NAME) $(O)
 	@ranlib $(NAME)
 
-$(ODIR)%.o: %.c $(EXT)
-	@echo "-> Compiling $<..."
+$(ODIR)%.o: %.c
 	@$(CC) $(FLAGS) $(MLXINC) $(LFTINC) -c $< -o $@
 
 $(O): | ./bin
@@ -51,12 +55,12 @@ $(O): | ./bin
 	@mkdir $(ODIR)
 
 clean:
-	@echo "-> Cleaning libgfx object files..."
-	@rm -f bin/*.o
+	@echo "-> Cleaning $(NAME2) object files..."
+	@rm -rf $(O)
 
 fclean: clean
-	@echo "-> Cleaning $(NAME)..."
-	@rm -f $(NAME)
+	@echo "-> Cleaning $(NAME)...\n"
+	@rm -rf $(NAME)
 
 re: fclean all
 
