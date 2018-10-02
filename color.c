@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 #include "libft/libft.h"
 
 void			init_color_table(t_view *view, int color_nbr, int r, int g, int b)
@@ -39,33 +39,33 @@ void			initial_color(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 128, 477, 477, 477);
+	init_color_table(view, 64, 477, 477, 477);
 }
 
 void			color1(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 128, 377, 7, 277);
+	init_color_table(view, 64, 377, 7, 277);
 }
 
 void			color2(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 128, 42, 98, 130);
+	init_color_table(view, 64, 42, 98, 130);
 }
 
 void			color3(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 128, 432, 221, 177);
+	init_color_table(view, 64, 432, 221, 177);
 }
 
 void			color4(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 128, 69, 274, 42);
+	init_color_table(view, 64, 69, 274, 42);
 }

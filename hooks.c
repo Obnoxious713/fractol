@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 #include "libft/libft.h"
 
 int				key_release_hook(int keycode, t_view *view)
@@ -59,9 +59,9 @@ int				loop_hook(t_view *view)
 {
 	if (view->pressed->a || view->pressed->s || view->pressed->w ||
 		view->pressed->d || view->pressed->q || view->pressed->z ||
-		view->pressed->num_minus || view->pressed->num_plus ||
-		view->pressed->left || view->pressed->right || view->pressed->up
-		|| view->pressed->down)
+		view->pressed->i || view->pressed->o || view->pressed->num_minus ||
+		view->pressed->num_plus || view->pressed->left ||
+		view->pressed->right || view->pressed->up || view->pressed->down)
 		view->changed = 1;
 	if (view->pressed->a)
 		view->x_shift -= 1;

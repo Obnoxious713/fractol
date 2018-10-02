@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 #include "libft/libft.h"
 
 int				motion_hook(int x, int y, t_view *view)
@@ -27,9 +27,9 @@ int				motion_hook(int x, int y, t_view *view)
 int				mouse_press_hook(int button, int x, int y, t_view *view)
 {
 	if (button == 1)
-		view->max_iter += 5;
+		view->max_iter += 7;
 	else if (button == 2)
-		view->max_iter -= 5;
+		view->max_iter -= 7;
 	if (button == 5)
 	{
 		x -= view->width / 2;

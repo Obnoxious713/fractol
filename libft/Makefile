@@ -121,7 +121,7 @@ ODIR = ./bin/
 
 O = $(addprefix $(ODIR), $(OBJ))
 
-all: $(LIBPF) $(LIBCOMPLEX) $(NAME) extra_obj
+all: $(LIBPF) $(LIBCOMPLEX) $(NAME) #extra_obj
 
 $(LIBPF):
 	@make -C ./printf

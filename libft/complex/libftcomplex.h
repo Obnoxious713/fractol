@@ -32,6 +32,6 @@ t_complex			ft_cadd(t_complex x, t_complex y);
 t_complex			ft_csub(t_complex x, t_complex y);
 t_complex			ft_cmult(t_complex x, t_complex y);
 t_complex			ft_cdiv(t_complex x, t_complex y);
-t_complex			ft_cpow(t_complex x, int e);
+t_complex			ft_cpow(t_complex x, double e);
 
 #endif

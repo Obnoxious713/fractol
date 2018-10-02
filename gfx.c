@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 #include "libft/libft.h"
 
 void			redraw(t_view *view)
@@ -20,8 +20,8 @@ void			redraw(t_view *view)
 		view->fract_func = mandelbrot;
 	else if (view->mode == '2')
 		view->fract_func = julia_mouse;
-	else if (view->mode == '3')
-		view->fract_func = newton_mouse;
+	else
+		view->fract_func = julia_mouse_multi;
 	thread_fractal(view);
 	use_image(view);
 }
@@ -29,7 +29,7 @@ void			redraw(t_view *view)
 void			init_view(t_view *view)
 {
 	view->changed = 1;
-	view->max_iter = 128;
+	view->max_iter = 64;
 	view->width = 1200;
 	view->height = 1200;
 	view->mouse_x = 0;

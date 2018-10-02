@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleisch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTAL_H
+# define FRACTAL_H
 
 # define THREAD_NUM 16
 
@@ -48,7 +48,7 @@ typedef struct		s_view
 	int				line_size;
 	int				endian;
 	int				max_iter;
-	int				count[128];
+	int				count[64];
 	int				width;
 	int				height;
 	double			mouse_x;
@@ -107,8 +107,8 @@ void			init_color_table(t_view *view, int color_nbr, int r, int g, int b);
 int				mandelbrot(t_view *view, double real, double imag);
 int				julia(t_view *view, double x, double y);
 int				julia_mouse(t_view *view, double x, double y);
-int				newton(t_view *view, double x, double y);
-int				newton_mouse(t_view *view, double x, double y);
+int				julia_multi(t_view *view, double x, double y, int n);
+int				julia_mouse_multi(t_view *view, double x, double y);
 
 void			fract_thread(void *thread_arg);
 pthread_t		make_thread(t_view *view, int index, int count);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 #include "libft/libft.h"
 
 static void		toggle_nums(int keycode, t_view *view, int toggle)

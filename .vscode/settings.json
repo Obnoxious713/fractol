@@ -89,5 +89,4 @@
 		"borderStyle": "none none solid none"
 	},
 	"subtleBrackets.disableNative": true,
-	"C_Cpp.errorSquiggles": "Disabled",
 }

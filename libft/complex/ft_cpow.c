@@ -12,7 +12,7 @@
 
 #include "libftcomplex.h"
 
-t_complex		ft_cpow(t_complex x, int e)
+t_complex		ft_cpow(t_complex x, double e)
 {
 	int			i;
 	t_complex	ret;

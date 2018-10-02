@@ -10,13 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 #include "libft/libft.h"
 
 void		usage(void)
 {
-	ft_putendl("Usage:\n./fractol '#'");
+	ft_putendl("Usage:\n./fractal '#'");
 	ft_putendl("1: Mandelbrot\n2: Julia");
+	ft_putendl("3: Julia Cube\n4: Julia Quad\n5: Julia Quin");
+	ft_putendl("6: Julia Sext\n7: Julia Sept\n8: Julia Oct\n:9 Julia Non");
 	exit(0);
 }
 
@@ -29,12 +31,12 @@ int			main(int ac, char **av)
 		usage();
 	mlx = mlx_init();
 	view = create_view(mlx);
-	if (av[1][0] == '1' || av[1][0] == '2' || av[1][0] == '3')
+	if (av[1][0] >= '1' && av[1][0] <= '9')
 		view->mode = av[1][0];
 	else
 		usage();
 	create_image(view);
-	view->win = mlx_new_window(mlx, view->width, view->height, "Fractol");
+	view->win = mlx_new_window(mlx, view->width, view->height, "fractal");
 	set_hooks(view);
 	mlx_loop_hook(mlx, loop_hook, view);
 	mlx_loop(mlx);
@@ -54,9 +56,9 @@ int			main(int ac, char **av)
 // 		0x000057, 0x000037, 0x000017 ,0x000000
 // 	};
 
-// 	view->color = (int*)ft_memalloc(sizeof(int) * 128);
+// 	view->color = (int*)ft_memalloc(sizeof(int) * 64);
 // 	i = -1;
-// 	while (++i < 128)
+// 	while (++i < 64)
 // 		view->color[i] = color[i];
 // }
 
@@ -78,8 +80,8 @@ int			main(int ac, char **av)
 // 		COBALT + 77, COBALT + 154, COBALT + 231,
 // 	};
 
-// 	view->color = (int*)ft_memalloc(sizeof(int) * 128);
+// 	view->color = (int*)ft_memalloc(sizeof(int) * 64);
 // 	i = -1;
-// 	while (++i < 128)
+// 	while (++i < 64)
 // 		view->color[i] = color[i];
 // }
