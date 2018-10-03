@@ -13,59 +13,42 @@
 #include "fractal.h"
 #include "libft/libft.h"
 
-void			init_color_table(t_view *view, int color_nbr, int r, int g, int b)
-{
-	int			i;
-	float		f;
-	unsigned char	red;
-	unsigned char	green;
-	unsigned char	blue;
-
-	view->color = (int*)ft_memalloc(sizeof(int) * color_nbr);
-	f = 0;
-	i = -1;
-	while (++i < color_nbr)
-	{
-		red = (cos(f) + 1) * r;
-		green = (sin(f) + 1) * g;
-		blue = (-cos(f) + 1) * b;
-		view->color[i] = blue << 16 | green << 8 | red;
-		f += M_PI / color_nbr;
-	}
-	view->color_nbr = color_nbr;
-}
-
 void			initial_color(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 64, 477, 477, 477);
+	view->color_nbr = 64;
+	init_color_table(view, 477, 477, 477);
 }
 
 void			color1(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 64, 377, 7, 277);
+	view->color_nbr = 64;
+	init_color_table(view, 377, 7, 277);
 }
 
 void			color2(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 64, 42, 98, 130);
+	view->color_nbr = 64;
+	init_color_table(view, 42, 98, 130);
 }
 
 void			color3(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 64, 432, 221, 177);
+	view->color_nbr = 64;
+	init_color_table(view, 432, 221, 177);
 }
 
 void			color4(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	init_color_table(view, 64, 69, 274, 42);
+	view->color_nbr = 64;
+	init_color_table(view, 69, 274, 42);
 }

@@ -54,6 +54,34 @@ static void		toggle_arrows(int keycode, t_view *view, int toggle)
 		view->pressed->right = toggle;
 }
 
+void			key_pressed(t_view *view)
+{
+	if (view->pressed->a)
+		view->x_shift -= 1;
+	else if (view->pressed->d)
+		view->x_shift += 1;
+	if (view->pressed->w)
+		view->y_shift -= 1;
+	else if (view->pressed->s)
+		view->y_shift += 1;
+	if (view->pressed->left)
+		view->x_shift -= 10;
+	else if (view->pressed->right)
+		view->x_shift += 10;
+	if (view->pressed->up)
+		view->y_shift -= 10;
+	else if (view->pressed->down)
+		view->y_shift += 10;
+	if (view->pressed->i)
+		view->zoom = (view->zoom + 1) * 1.1;
+	else if (view->pressed->o && view->zoom > 1)
+		view->zoom = (view->zoom - 1) * 1.1;
+	if (view->pressed->num_plus)
+		view->color_inc++;
+	else if (view->pressed->num_minus)
+		view->color_inc--;
+}
+
 void			toggle_pressed(int keycode, t_view *view, int toggle)
 {
 	toggle_wasd(keycode, view, toggle);

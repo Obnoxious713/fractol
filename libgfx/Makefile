@@ -20,10 +20,7 @@ CC = gcc
 ODIR = ./bin/
 IDIR = ./
 
-SRC = ft_drawline.c \
-		matrix_math.c \
-		transform_matrix.c \
-		initializers.c
+SRC = initializers.c
 
 OBJ = $(SRC:.c=.o)
 

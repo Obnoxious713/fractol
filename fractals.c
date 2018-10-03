@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fractal.h"
+#include <stdio.h>
 
 int				mandelbrot(t_view *view, double real, double imag)
 {
@@ -26,49 +27,14 @@ int				mandelbrot(t_view *view, double real, double imag)
 			+ (view->x_shift / view->width);
 	imag = ((4.0 * imag / view->height - 2.0) / view->zoom)
 			+ (view->y_shift / view->height);
-	view->er = 20.0;
 	while (x * x + y * y <= 4 && i < view->max_iter)
 	{
 		new_x = x * x - y * y + real;
 		y = 2 * x * y + imag;
 		x = new_x;
-		view->mod = sqrt(real * real + imag * imag);
-		if (view->er < view->mod)
-		{
-			view->mu = i - (log(log(view->mod)) / log(2.0));
-			return (i);
-		}
-		i++;
-	}
-	view->mu = i - (log(log(view->mod)) / log(2.0));
-	return (i);
-}
-
-int				julia(t_view *view, double x, double y)
-{
-	int			i;
-	long double	new_x;
-
-	i = 0;
-	x = ((4.0 * x / view->width - 2.0) / view->zoom)
-			+ (view->x_shift / view->width);
-	y = ((4.0 * y / view->height - 2.0) / view->zoom)
-			+ (view->y_shift / view->height);
-	while (x * x + y * y < 4.0 && i < view->max_iter)
-	{
-		new_x = x * x - y * y + view->fract->real;
-		y = 2 * x * y + view->fract->imag;
-		x = new_x;
 		i++;
 	}
 	return (i);
-}
-
-int				julia_mouse(t_view *view, double x, double y)
-{
-	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
-	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
-	return (julia(view, x, y));
 }
 
 int				julia_multi(t_view *view, double x, double y, int n)

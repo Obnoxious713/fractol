@@ -28,7 +28,8 @@ void			put_pixel_to_img(t_view *view, int x, int y, int color)
 void			create_image(t_view *view)
 {
 	view->img = mlx_new_image(view->mlx, view->width, view->height);
-	view->pixel = mlx_get_data_addr(view->img, &(view->bpp), &(view->line_size), &(view->endian));
+	view->pixel = mlx_get_data_addr(view->img, &(view->bpp),
+										&(view->line_size), &(view->endian));
 }
 
 void			use_image(t_view *view)

@@ -12,35 +12,25 @@
 
 #include "../libft/libft.h"
 #include "libgfx.h"
+#include "../fractal.h"
 
-/*
-** ft_make_3d() takes cordinates of a vertex and creates a t_3d 'ret' whose
-** x, y, and z values are then set to the args passed in
-*/
-
-t_3d            *ft_make_3d(int x, int y, int z)
+void				init_color_table(t_view *view, int r, int g, int b)
 {
-    t_3d        *ret;
+	int				i;
+	float			f;
+	unsigned char	red;
+	unsigned char	green;
+	unsigned char	blue;
 
-    ret = (t_3d*)ft_memalloc(sizeof(t_3d));
-    ret->x = x;
-    ret->y = y;
-    ret->z = z;
-    return (ret);
-}
-
-
-/*
-** ft_make_vertex() takes the cordinates of a vertex and sets the local value to
-** the return value of ft_make_3d()
-*/
-t_vertex        *ft_make_vertex(int x, int y, int z)
-{
-    t_vertex    *ret;
-
-    ret = (t_vertex*)ft_memalloc(sizeof(t_vertex));
-    ret->local = ft_make_3d(x, y, z);
-    ret->world = ft_make_3d(0, 0, 0);
-    ret->aligned = ft_make_3d(0, 0, 0);
-    return (ret);
+	view->color = (int*)ft_memalloc(sizeof(int) * view->color_nbr);
+	f = 0;
+	i = -1;
+	while (++i < view->color_nbr)
+	{
+		red = (cos(f) + 1) * r;
+		green = (sin(f) + 1) * g;
+		blue = (-cos(f) + 1) * b;
+		view->color[i] = blue << 16 | green << 8 | red;
+		f += M_PI / view->color_nbr;
+	}
 }

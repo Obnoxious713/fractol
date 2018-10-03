@@ -23,8 +23,10 @@ SRC = main.c \
 		fractals.c \
 		thread.c \
 		gfx.c \
+		hc_julia.c \
 		hooks.c \
 		image.c \
+		julia_mouse.c \
 		mouse_hooks.c \
 		toggle_keys.c
 
