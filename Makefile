@@ -21,7 +21,7 @@ NORM = norminette -R CheckForbiddenSourceHeader
 SRC = main.c \
 		color.c \
 		fractals.c \
-		draw.c \
+		thread.c \
 		gfx.c \
 		hooks.c \
 		image.c \

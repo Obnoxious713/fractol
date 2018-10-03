@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "libft/libft.h"
 
 int				motion_hook(int x, int y, t_view *view)
 {

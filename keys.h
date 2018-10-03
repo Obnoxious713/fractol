@@ -74,9 +74,6 @@
 # define KEY_ALT_R 262
 # define KEY_SHIFT_R 258
 
-/*
-** ------ FUNCTIONS ------
-*/
 typedef struct	s_keys
 {
 	int			a:1;

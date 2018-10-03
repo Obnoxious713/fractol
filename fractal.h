@@ -15,25 +15,21 @@
 
 # define THREAD_NUM 16
 
-/*
-** ------ LIBRARIES ------
-*/
 # include <pthread.h>
-# include "libft/libft.h"
-# include "libgfx/libgfx.h"
-# include "libgfx/minilibx/mlx.h"
-# include "libft/complex/libftcomplex.h"
 # include "keys.h"
 # include "colors.h"
+# include "libgfx/libgfx.h"
+# include "libgfx/minilibx/mlx.h"
+# include "libft/libft.h"
+# include "libft/complex/libftcomplex.h"
 
-/*
-** ------ TYPEDEFS ------
-*/
 typedef struct		s_fract
 {
 	long double		x;
 	long double		y;
-	t_complex		*complex;
+	long double		real;
+	long double		imag;
+	// t_complex		*complex;
 }					t_fract;
 
 typedef struct		s_view
@@ -43,7 +39,7 @@ typedef struct		s_view
 	void			*img;
 	char			*pixel;
 	int				*color;
-	int				color_nbr;
+	int				color_nbr; // number of iterations
 	int				bpp;
 	int				line_size;
 	int				endian;
@@ -57,6 +53,9 @@ typedef struct		s_view
 	int				zoom;
 	double			x_shift;
 	double			y_shift;
+	double			mu;
+	double			mod;
+	double			er;
 	char			mode;
 	int				changed:1;
 	int				(*fract_func)(struct s_view*, double x, double y);

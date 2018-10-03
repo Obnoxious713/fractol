@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "libft/libft.h"
 
 void		usage(void)
 {

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleisch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "libft/libft.h"
 
 void			fract_thread(void *thread_arg)
 {
@@ -34,8 +33,14 @@ void			fract_thread(void *thread_arg)
 			if (i < view->max_iter)
 			{
 				put_pixel_to_img(view, x, y, view->color[
-					(i + view->color_inc) % 64]);
+					(i + view->color_inc) % view->color_nbr]);
 			}
+			// if (view->er > view->mod)
+			// {
+			// 	i++;
+			// 	put_pixel_to_img(view, x, y, view->color[
+			// 		(view->color_inc + (int)view->mu) % view->color_nbr]);
+			// }
 		}
 	}
 }

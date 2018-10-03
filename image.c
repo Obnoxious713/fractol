@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "libft/libft.h"
 
 void			put_pixel_to_img(t_view *view, int x, int y, int color)
 {

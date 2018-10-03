@@ -15,6 +15,7 @@
 
 # include "../libft.h"
 # include <math.h>
+# include <complex.h>
 
 typedef struct		s_complex
 {

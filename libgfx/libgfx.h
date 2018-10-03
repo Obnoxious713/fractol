@@ -20,8 +20,8 @@
 
 # define COLOR1 0xa7f442
 # define COLOR2 0xc542f4
-# define WINDOW_SIZE_X 1000
-# define WINDOW_SIZE_Y 700
+# define WINDOW_SIZE_X 1400
+# define WINDOW_SIZE_Y 1400
 
 typedef struct  s_2d
 {

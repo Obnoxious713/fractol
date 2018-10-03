@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fractal.h"
-#include "libft/libft.h"
 
 void			redraw(t_view *view)
 {
@@ -30,8 +29,8 @@ void			init_view(t_view *view)
 {
 	view->changed = 1;
 	view->max_iter = 64;
-	view->width = 1200;
-	view->height = 1200;
+	view->width = 1400;
+	view->height = 1400;
 	view->mouse_x = 0;
 	view->mouse_y = 0;
 	view->color_inc = 0;
@@ -59,7 +58,6 @@ t_view			*create_view(void *mlx)
 	view = (t_view*)ft_memalloc(sizeof(t_view));
 	view->pressed = (t_keys*)ft_memalloc(sizeof(t_keys));
 	view->fract = (t_fract*)ft_memalloc(sizeof(t_fract));
-	view->fract->complex = (t_complex*)ft_memalloc(sizeof(t_complex));
 	init_view(view);
 	view->pressed->space = 0;
 	view->pressed->w = 0;

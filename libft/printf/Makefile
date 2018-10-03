@@ -81,11 +81,11 @@ $(O): | ./bin
 	@mkdir -p $(ODIR)
 
 extra:
-	@mv *.o ./bin/
+	@mv *.o $(ODIR)
 
 clean:
 	@echo "-> Cleaning $(NAME2) object files..."
-	@rm -rf $(O)
+	@rm -rf $(ODIR)*.o
 
 fclean: clean
 	@echo "-> Cleaning $(NAME)...\n"
