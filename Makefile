@@ -19,15 +19,16 @@ CC = gcc
 NORM = norminette -R CheckForbiddenSourceHeader
 
 SRC = main.c \
-		color.c \
+		colors.c \
 		fractals.c \
-		thread.c \
 		gfx.c \
 		hc_julia.c \
 		hooks.c \
 		image.c \
+		initializers.c \
 		julia_mouse.c \
 		mouse_hooks.c \
+		thread.c \
 		toggle_keys.c
 
 OBJ = $(addprefix $(ODIR),$(SRC:.c=.o))
@@ -37,30 +38,23 @@ LIBFTINC = -I./libft
 LINK_FT = -L./libft -lft -L./libft/printf -lftprintf -L./libft/complex -lftcomplex
 FT_NAME = libft
 
-MLX = ./libgfx/minilibx/libmlx.a
-MLXINC = -I./libgfx/minilibx
-LINK_MLX = -L./libgfx/minilibx -lmlx -framework OpenGL -framework AppKit
+MLX = ./minilibx/libmlx.a
+MLXINC = -I./minilibx
+LINK_MLX = -L./minilibx -lmlx -framework OpenGL -framework AppKit
 MLX_NAME = minilibx
-
-LIBGFX = ./libgfx/libgfx.a
-LIBGFXINC = -I./libgfx
-LINK_GFX = -L./libgfx -lgfx
-GFX_NAME = libgfx
 
 IDIR = ./
 ODIR = ./bin/
 
-all: obj mlx libgfx libft $(NAME)
+all: obj mlx libft $(NAME)
 
 obj:
 	@mkdir -p $(ODIR)
 
 $(ODIR)%.o: %.c
-	@$(CC) $(FLAGS) $(MLXINC) $(LIBGFXINC) $(LIBFTINC) -I $(IDIR) -c $< -o $@
+	@$(CC) $(FLAGS) $(MLXINC) $(LIBFTINC) -I $(IDIR) -c $< -o $@
 
 libft: $(LIBFT)
-
-libgfx: $(LIBGFX)
 
 mlx: $(MLX)
 
@@ -68,13 +62,9 @@ $(LIBFT):
 	@echo "\n-> Making $(FT_NAME) ...\n"
 	@make -C ./libft re
 
-$(LIBGFX):
-	@echo "\n-> Making $(GFX_NAME) ...\n"
-	@make -C ./libgfx re
-
 $(MLX):
 	@echo "\n-> Making $(MLX_NAME) ...\n"
-	@make -C ./libgfx/minilibx re
+	@make -C ./minilibx re
 
 $(NAME): $(OBJ)
 	@echo "-> Compiling $(NAME)..."
@@ -85,14 +75,12 @@ clean:
 	@echo "-> Cleaning $(NAME) object files..."
 	@rm -rf $(OBJ)
 	@make -C ./libft clean
-	@make -C ./libgfx clean
-	@make -C ./libgfx/minilibx clean
+	@make -C ./minilibx clean
 
 fclean: clean
 	@echo "-> Cleaning $(NAME)...\n "
 	@rm -rf $(NAME)
 	@make -C ./libft fclean
-	@make -C ./libgfx fclean
 
 re: fclean all
 

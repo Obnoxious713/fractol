@@ -17,11 +17,8 @@
 
 # include <pthread.h>
 # include "keys.h"
-# include "colors.h"
-# include "libgfx/libgfx.h"
-# include "libgfx/minilibx/mlx.h"
+# include "minilibx/mlx.h"
 # include "libft/libft.h"
-# include "libft/complex/libftcomplex.h"
 
 typedef struct		s_fract
 {

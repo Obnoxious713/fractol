@@ -121,7 +121,7 @@ ODIR = ./bin/
 
 O = $(addprefix $(ODIR), $(OBJ))
 
-all: $(LIBPF) $(LIBCOMPLEX) $(NAME) #extra_obj
+all: $(LIBPF) $(NAME) #extra_obj
 
 $(LIBPF):
 	@make -C ./printf
@@ -153,7 +153,6 @@ fclean: clean
 	@echo "-> Cleaning $(NAME)...\n"
 	@$(RM) $(NAME)
 	@make -C ./printf fclean
-	@make -C ./complex fclean
 
 re: fclean all
 

@@ -17,38 +17,33 @@ void			initial_color(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color_nbr = 64;
-	init_color_table(view, 477, 477, 477);
+	init_color_table(view, 464, 464, 464);
 }
 
 void			color1(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color_nbr = 64;
-	init_color_table(view, 377, 7, 277);
+	init_color_table(view, 164, 0, 564);
 }
 
 void			color2(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color_nbr = 64;
-	init_color_table(view, 42, 98, 130);
+	init_color_table(view, 32, 164, 216);
 }
 
 void			color3(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color_nbr = 64;
-	init_color_table(view, 432, 221, 177);
+	init_color_table(view, 77, 377, 77);
 }
 
 void			color4(t_view *view)
 {
 	if (view->color)
 		free(view->color);
-	view->color_nbr = 64;
-	init_color_table(view, 69, 274, 42);
+	init_color_table(view, 264, 264, 64);
 }

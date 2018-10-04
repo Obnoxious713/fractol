@@ -22,7 +22,7 @@ int				julia_squared(t_view *view, double x, double y)
 			+ (view->x_shift / view->width);
 	y = ((4.0 * y / view->height - 2.0) / view->zoom)
 			+ (view->y_shift / view->height);
-	while (x * x + y * y < 4.0 && i < view->max_iter)
+	while (x * x + y * y <= 4.0 && i < view->max_iter)
 	{
 		new_x = x * x - y * y + view->fract->real;
 		y = 2 * x * y + view->fract->imag;
