@@ -12,6 +12,11 @@
 
 #include "fractal.h"
 
+/*
+**	else if (view->mode == '4')
+** 		view->fract_func = julia_quad_mouse;
+*/
+
 void			redraw(t_view *view)
 {
 	view->changed = 0;
@@ -21,8 +26,6 @@ void			redraw(t_view *view)
 		view->fract_func = julia_squared_mouse;
 	else if (view->mode == '3')
 		view->fract_func = julia_cubed_mouse;
-	// else if (view->mode == '4')
-	// 	view->fract_func = julia_quad_mouse;
 	else
 		view->fract_func = julia_mouse_multi;
 	thread_fractal(view);

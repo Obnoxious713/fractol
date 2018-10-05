@@ -35,7 +35,8 @@ OBJ = $(addprefix $(ODIR),$(SRC:.c=.o))
 
 LIBFT = ./libft/libft.a
 LIBFTINC = -I./libft
-LINK_FT = -L./libft -lft -L./libft/printf -lftprintf -L./libft/complex -lftcomplex
+LINK_FT = -L./libft -lft -L./libft/printf -lftprintf
+#-L./libft/complex -lftcomplex
 FT_NAME = libft
 
 MLX = ./minilibx/libmlx.a

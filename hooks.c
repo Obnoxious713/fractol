@@ -50,6 +50,14 @@ int				expose_hook(t_view *view)
 int				exit_hook(t_view *view)
 {
 	mlx_destroy_window(view->mlx, view->win);
+	if (view->pressed)
+		free(view->pressed);
+	if (view->fract)
+		free(view->fract);
+	if (view->mlx)
+		free(view->mlx);
+	if (view)
+		free(view);
 	exit(0);
 	return (0);
 }
@@ -63,7 +71,6 @@ int				loop_hook(t_view *view)
 		view->pressed->right || view->pressed->up || view->pressed->down)
 		view->changed = 1;
 	key_pressed(view);
-	if (view->changed)
-		redraw(view);
+	expose_hook(view);
 	return (0);
 }

@@ -33,7 +33,7 @@ void				init_color_table(t_view *view, int r, int g, int b)
 	}
 }
 
-void			init_view(t_view *view)
+void				init_view(t_view *view)
 {
 	view->changed = 1;
 	view->max_iter = 64;
@@ -48,7 +48,7 @@ void			init_view(t_view *view)
 	view->y_shift = 0;
 }
 
-void			init_pressed(t_view *view)
+void				init_pressed(t_view *view)
 {
 	view->pressed->space = 0;
 	view->pressed->w = 0;

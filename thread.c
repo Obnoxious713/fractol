@@ -37,6 +37,7 @@ void			fract_thread(void *thread_arg)
 			}
 		}
 	}
+	free(thread);
 }
 
 pthread_t		make_thread(t_view *view, int index, int count)
