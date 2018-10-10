@@ -32,3 +32,31 @@ int				julia_quad_mouse(t_view *view, double x, double y)
 	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
 	return (julia_quad(view, x, y));
 }
+
+int				julia_mouse_multi(t_view *view, double x, double y)
+{
+	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
+	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
+	return (julia_multi(view, x, y, ft_atoi(&view->mode)));
+}
+
+int				julia_3m2p1_mouse(t_view *view, double x, double y)
+{
+	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
+	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
+	return (julia_3m2p1(view, x, y));
+}
+
+int				julia_4m3m2_mouse(t_view *view, double x, double y)
+{
+	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
+	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
+	return (julia_4m3m2(view, x, y));
+}
+
+int					julia_4p3p2p1_mouse(t_view *view, double x, double y)
+{
+	view->fract->real = view->mouse_x * 4.0 / view->width - 2;
+	view->fract->imag = view->mouse_y * 4.0 / view->height - 2;
+	return (julia_4p3p2p1(view, x, y));
+}

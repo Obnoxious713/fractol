@@ -100,7 +100,9 @@ void				init_color_table(t_view *view, int r, int g, int b);
 
 int					mandelbrot(t_view *view, double real, double imag);
 int					julia_multi(t_view *view, double x, double y, int n);
-int					julia_mouse_multi(t_view *view, double x, double y);
+int					julia_3m2p1(t_view *view, double x, double y);
+int					julia_4m3m2(t_view *view, double x, double y);
+int					julia_4p3p2p1(t_view *view, double x, double y);
 
 int					julia_squared(t_view *view, double x, double y);
 int					julia_cubed(t_view *view, double x, double y);
@@ -109,6 +111,10 @@ int					julia_quad(t_view *view, double x, double y);
 int					julia_squared_mouse(t_view *view, double x, double y);
 int					julia_cubed_mouse(t_view *view, double x, double y);
 int					julia_quad_mouse(t_view *view, double x, double y);
+int					julia_mouse_multi(t_view *view, double x, double y);
+int					julia_3m2p1_mouse(t_view *view, double x, double y);
+int					julia_4m3m2_mouse(t_view *view, double x, double y);
+int					julia_4p3p2p1_mouse(t_view *view, double x, double y);
 
 void				fract_thread(void *thread_arg);
 pthread_t			make_thread(t_view *view, int index, int count);
